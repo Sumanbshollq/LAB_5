@@ -1,0 +1,12 @@
+vmip = "@@{VMIP}@@"
+vm_url="http://{0}:8000".format(vmip)
+def get_resource_list(url):
+    headers = {'Content-Type': 'text/html', 'Accept':'text/html'}
+    try:
+        r=urlreq(url, verb='GET', headers=headers, auth="NONE")
+    except Exception as e:
+        print e
+    return r
+
+res=get_resource_list(vm_url)
+print res
